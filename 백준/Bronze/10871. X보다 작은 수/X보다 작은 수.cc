@@ -15,7 +15,8 @@ int main(void) {
 		if (seq[i] < X)
 			cout << seq[i] << ' ';
 	}
-	cout << endl;    // 반복문 중간에 flush가 발생하지 않았더라도, endl에 의해 버퍼가 flush되어 이 시점에 화면에 출력
+	cout << '\n';    // 반복문 중간에 flush가 발생하지 않았더라도, 개행 문자('\n')에 의해 버퍼가 flush되어 이 시점에 화면에 출력
 
 	return 0;
+
 }
