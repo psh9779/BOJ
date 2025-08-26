@@ -5,18 +5,12 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
 
-	// 규칙 : 1, 1+6, 1+6+(6+6), 1+6+(6+6)+(6+6+6), 1+6+(6+6)+(6+6+6)+(6+6+6+6), ... 
-	int N, cnt = 0;
+	int N, step = 1;
 	cin >> N;
 
-	while (N > 0) {
-		if (cnt > 0)
-			N -= 6 * cnt;
-		else
-			N -= 1;
-		cnt++;
-	}
-	cout << cnt << '\n';
+	for (int sum = 2; sum <= N; step++)
+		sum += 6 * step;
 
+	cout << step << '\n';
 	return 0;
 }
