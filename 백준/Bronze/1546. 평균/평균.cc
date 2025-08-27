@@ -20,7 +20,8 @@ int main(void) {
 		result += score[j];
 	}
 	result = result / N;
-	cout << fixed << setprecision(3) << result << '\n';    // 소수 이하를 고정해서 3자리까지만 일시적으로 출력
+	cout << fixed << setprecision(3) << result << '\n';    // 소수 이하를 고정해서 3자리까지 출력하도록 스트림 설정을 변경 (setprecision()을 다른 값으로 다시 호출하기 전까지는 마지막에 지정한 값이 계속 적용)
 
 	return 0;
+
 }
