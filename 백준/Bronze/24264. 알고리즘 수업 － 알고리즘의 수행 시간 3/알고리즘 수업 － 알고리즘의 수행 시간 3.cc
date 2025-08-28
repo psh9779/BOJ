@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-	long long n;    // 1 <= n(입력 값) <= 500,000. 최악의 경우 n*n의 값은 2천 5백억이 됨 -> 따라서, 992경까지 커버 가능한 signed long long형으로 선언
+	long long n;    // 1 <= n(입력 값) <= 500,000. 최악의 경우 n*n의 값은 2조 5천억이 됨 -> 따라서, 992경까지 커버 가능한 signed long long형으로 선언
 	cin >> n;
 	cout << n*n << '\n';    // 코드1의 수행횟수는 n*n회
 	cout << "2\n";    // 수행 횟수를 다항식으로 나타내었을 때, 최고차항의 차수는 2
