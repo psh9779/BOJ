@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 using namespace std;
 /*
 * 티셔츠는 S, M, L, XL, XXL, XXXL 6종류의 사이즈가 있으며, 같은 사이즈의 T장 묶음으로만 주문 간으
@@ -41,4 +40,5 @@ int main() {
 	cout << bundle_pen << ' ' << each_pen << '\n';
 
 	return 0;
+
 }
