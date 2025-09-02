@@ -25,7 +25,19 @@ int main() {
 			}
 		}
 	}
-
+	
+	/* Bubble Sort 방식(인접한 두 요소를 비교해서 큰 값을 뒤로 보내는 방식)
+	for (int i = 1; i <= N - 1; i++) {
+		for (int j = 1; j <= N - i; j++) {
+			temp = arr[j];
+			if (arr[j] > arr[j + 1]) {
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+		}
+	}
+	*/
+	
 	for (int cnt = 1; cnt <= N; cnt++)
 		cout << arr[cnt] << '\n';
 	
