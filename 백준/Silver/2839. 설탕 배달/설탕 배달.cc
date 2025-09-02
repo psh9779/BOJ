@@ -29,3 +29,32 @@ int main(){
 	return 0;
 
 }
+
+
+/* 브루트 포스 방식으로 푸는 다른 방법
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n;
+	cin >> n;
+
+	int cnt = 0;
+	bool done = false;
+	while (n >= 0) {
+		if (n % 5 == 0) {    // n값이 5로 나눠지면
+			cnt += n / 5;    // 5kg짜리 봉지 n/5개 추가
+			done = true;
+			break;
+		}
+		n -= 3;    // n값이 5로 나눠지지 않는 경우
+		cnt++;    // 3kg짜리 봉지 1개 추가
+	}
+	if (done)
+		cout << cnt << '\n';
+	else
+		cout << -1 << '\n';
+
+	return 0;
+}
+*/
