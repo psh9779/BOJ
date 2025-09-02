@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 // 주의할 점 : 단, 설탕을 "정확하게" N 킬로그램 배달해야 함
@@ -28,4 +27,5 @@ int main(){
 		cout << -1 << '\n';
 
 	return 0;
+
 }
