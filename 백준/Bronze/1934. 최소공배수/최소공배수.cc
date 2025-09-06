@@ -1,5 +1,4 @@
 #include <iostream>
-#include <unordered_set>
 using namespace std;
 
 int getGCD(int A, int B) {
