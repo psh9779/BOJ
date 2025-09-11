@@ -62,3 +62,48 @@ int main() {
 
 	return 0;
 }
+
+
+
+/* queue를 사용할 경우, push()를 역순으로 해야함 -> deque의 push_front()를 사용해서 덱으로 구현 가능
+#include <iostream>
+#include <deque>
+#include <vector>
+using namespace std;
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	int N;
+	cin >> N;
+
+	vector<int> type(N);
+	for (int i = 0; i < N; i++)
+		cin >> type[i];
+
+	vector<int> init(N);
+	for (int j = 0; j < N; j++)
+		cin >> init[j];
+
+	deque<int> dq;
+	for (int k = 0; k < N; k++) {
+		if (type[k] == 0)
+			dq.push_back(init[k]);    // 덱에 오름차순으로 초기값 push
+	}
+
+	int M;
+	cin >> M;
+
+	for (int m = 0; m < M; m++) {
+		int x;
+		cin >> x;
+		dq.push_front(x);    // 새로운 값은 앞쪽으로 삽입
+		if (m > 0) cout << ' ';
+		cout << dq.back();    // 맨 뒤쪽 값이 출력해야 할 리턴값이 됨
+		dq.pop_back();    // 맨 뒤의 값을 제거
+	}
+
+	return 0;
+}
+*/
