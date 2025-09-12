@@ -14,7 +14,7 @@ int main() {
 		cin >> coin_value[i];
 
 	int min_coin_cnt = 0;
-	for (int j = N - 1; j >= 0; j--) {    // K == 0이면 조기 종료가 가능함
+	for (int j = N - 1; j >= 0 && K > 0; j--) {    // K == 0이면 조기 종료가 가능함
 		min_coin_cnt += K / coin_value[j];
 		K %= coin_value[j];
 	}
