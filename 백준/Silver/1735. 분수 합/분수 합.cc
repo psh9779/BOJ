@@ -1,4 +1,3 @@
-// 부분 문자열을 어떻게 구해낼 것인가를 생각!
 #include <iostream>
 using namespace std;
 
@@ -23,4 +22,5 @@ int main() {
 	cout << res_A / gcd_total << ' ' << res_B / gcd_total << '\n';
 
 	return 0;
+
 }
