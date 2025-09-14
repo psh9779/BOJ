@@ -10,15 +10,18 @@ int main() {
 	string S;
 	cin >> S;
 
-	unordered_set<string> sub_strs;
-	int len = S.length();
+	int S_len = S.length();
+	unordered_set<string> sub_str;
 
-	for (int i = 0; i < len; i++) {
-		for (int j = i; j < len; j++) {
-			sub_strs.insert(S.substr(i, j - i + 1));    // i에서 시작해서 길이 j만큼의 새로운 문자열을 삽입
+	// S의 길이는 1000이하이므로 O(N^2)의 시간복잡도도 커버 가능
+	for (int i = 0; i < S_len; i++) {
+		string temp;    // C++에서 std::string은 클래스 타입이므로 기본 생성자 호출의 경우, 빈 문자열("")로 초기화 됨
+		for (int j = i; j < S_len; j++) {
+			temp += S[j];
+			sub_str.insert(temp);    // 집합이므로 이미 존재하면 중복 없이 알아서 처리됨
 		}
 	}
-	cout << sub_strs.size();
-
+	cout << sub_str.size() << '\n';
+	
 	return 0;
 }
