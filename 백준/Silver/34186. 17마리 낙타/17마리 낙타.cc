@@ -36,7 +36,7 @@ int main() {
 				cout << "-1\n";
 			else{    // N * denom / nume이 정수 값인 경우
 				long long N_K = total / nume;    // 수식에 따라서 N+K값 구하기
-				if (N_K < N || N_K % denom != 0)    // K값이 음수이거나 N+K값이 lcm으로 나누어 떨어지지 않는 경우
+				if (N_K < N || N_K % denom != 0)    // K값이 음수이거나 N+K값이 lcm으로 나누어 떨어지지 않는 경우 (N+K 값이 A,B,C로 각각 나누어 떨어져야하므로 N+K값은 결국 lcm으로 나누어 떨어져야 함)
 					cout << "-1\n";
 				else
 					cout << N_K - N << '\n';
