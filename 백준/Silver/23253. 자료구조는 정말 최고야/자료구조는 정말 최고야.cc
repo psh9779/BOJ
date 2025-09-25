@@ -12,21 +12,22 @@ int main() {
 
 	// 모든 더미가 오름차순으로 쌓여있기만 하면 올바른 순서대로 교과서를 꺼낼 수 있음
 	// 어떤 한 더미라도 오름차순으로 쌓여있지 않다면 올바른 순서대로 꺼낼 수 없음
-	bool check = true;
+	bool isValid = true;
 	while (M--) {
 		int K;
 		cin >> K;
 
-		vector<int> v(K);
-		for (int i = 0; i < K; i++) {
-			cin >> v[i];
-			if (i > 0 && v[i - 1] < v[i]) {
-				check = false;
-				break;
-			}
+		int prev, curr;
+		
+		if (K > 0) cin >> prev;
+		for (int i = 1; i < K; i++) {
+			cin >> curr;
+			if (prev < curr)
+				isValid = false;
+			prev = curr;
 		}
 	}
-	cout << (check ? "Yes\n" : "No\n");
+	cout << (isValid ? "Yes\n" : "No\n");
 
 	return 0;
 }
