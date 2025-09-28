@@ -18,7 +18,7 @@ int main() {
 		cnt[S[i]]++;    // 같은 나머지를 가진 구간 합의 개수 기록
 	}
 
-	long long answer = 0;    // 
+	long long answer = 0;
 	answer += cnt[0];    // (1) 0~i까지의 구간 합 자체가 0인 경우(M으로 나누어 떨어지는 경우)의 수 더하기
 
 	// (2) 같은 나머지를 가진 구간합의 요소 중 2개를 선택 -> 그 사이의 구간합이 M으로 나누어 떨어짐
@@ -26,7 +26,7 @@ int main() {
 	for (int i = 0; i < M; i++) {
 		if (cnt[i] > 1) {
 			// 나머지가 같은 인덱스 중에서 2개를 뽑는 경우의 수 계산하여 더하기 (즉, nC2)
-			answer += (cnt[i] * (cnt[i] - 1) / 2);
+			answer += (cnt[i] * (cnt[i] - 1) / 2);    // 정수 오버플로우 조심 (answer 및 cnt의 각 요소를 long long 선언)
 		}
 	}
 	cout << answer << '\n';
