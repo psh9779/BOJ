@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #define fastio ios::sync_with_stdio(false); cin.tie(NULL)
 using namespace std;
 
@@ -23,4 +22,5 @@ int main() {
 	cout << ans << '\n';
 
 	return 0;
+
 }
