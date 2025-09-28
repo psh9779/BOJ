@@ -39,11 +39,12 @@ int main() {
 
 
 
-/* 정답 처리된 다른 코드
+/* 정답 처리된 다른 코드 (but, 많은 수에 대한 소수 판정은 에라토스테네스의 체를 이용하도록 하자)
 #include <iostream>
 #define fastio ios::sync_with_stdio(false); cin.tie(NULL)
 using namespace std;
 
+// 이는 "어떤 n값 하나"가 소수인지 아닌지를 판정할 때 효율적인 방법임 (많은 수를 한꺼번에 검사할 때는 에라토스테네스의 체가 더 효율적)
 bool isPrime(int n) {
 	if (n <= 1)
 		return false;
