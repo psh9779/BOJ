@@ -44,3 +44,56 @@ int main() {
 
 	return 0;
 }
+
+
+
+
+
+
+
+/* 다른 방식으로 구현한 코드
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#define fastio ios::sync_with_stdio(false); cin.tie(NULL)
+using namespace std;
+
+int main() {
+	fastio;
+
+	int N;
+    cin >> N;
+
+	int box[16][16];
+
+    for (int i = 0; i < N; ++i)
+        for (int j = 0; j < N; ++j)
+			cin >> box[i][j];
+
+	int ans = 0;
+	for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            for (int k = i; k < N; ++k)
+                for (int h = j; h < N; ++h) {
+                    vector<int> v;
+
+                    for (int p = i; p <= k; ++p)
+                        for (int q = j; q <= h; ++q)
+                            v.push_back(box[p][q]);
+
+                    sort(v.begin(), v.end());
+                    
+					int chk = 1;
+                    for (int q : v) {
+                        if (q != chk) break;
+                        chk++;
+                    }
+                    if (chk == v.size() + 1) ans++;
+                }
+
+        }
+    }
+    cout << ans;
+    return 0;
+}
+*/
