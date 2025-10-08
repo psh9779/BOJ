@@ -1,35 +1,37 @@
 #include <iostream>
+#include <cmath>
+#define fastio ios::sync_with_stdio(0); cin.tie(0)
 using namespace std;
 
-// 내접, 외접을 모두 생각하여 Case 분류
-int main(){
-	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-	
-	int T;
-	cin >> T;
+int main() {
+	fastio;
 
-	for (int t = 0; t < T; t++) {
+	int T; cin >> T;
+
+	while (T--) {
 		int x1, y1, r1, x2, y2, r2;
 		cin >> x1 >> y1 >> r1 >> x2 >> y2 >> r2;
-
-		int d = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
 		
-		int cond1 = (r1 + r2) * (r1 + r2);    // 외접하는 경우
-		int cond2 = (r1 - r2) * (r1 - r2);    // 내접하는 경우
+		int d = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
 
-		if (d == 0) {    // 원의 두 중점이 같은 경우 (x1 == x2, y1 == y2)
-			if (cond2 == 0)    // r1 == r2인 경우
-				cout << "-1\n";
-			else    // r1 != r2인 경우
-				cout << "0\n";
+		int r_sum = r1 + r2;
+		int r_diff = abs(r1 - r2);
+
+		// 중점이 같은 경우
+		if (x1 == x2 && y1 == y2) {
+			if (r1 == r2)
+				cout << -1 << '\n';
+			else
+				cout << 0 << '\n';
 		}
-		else if (d == cond1 || d == cond2)    // 내접하거나 외접하는 특수한 경우
-			cout << "1\n";
-		else if (d < cond1 && d > cond2)    // 접점이 2개
-			cout << "2\n";
-		else
-			cout << "0\n";
+
+		// 중점이 다른 경우
+		else if (d > r_sum * r_sum || r_diff * r_diff > d)
+			cout << 0 << '\n';
+		else if (d == r_sum * r_sum || d == r_diff * r_diff)
+			cout << 1 << '\n';
+		else    // d < r_sum * r_sum && r_diff * r_diff < d인 경우
+			cout << 2 << '\n';
 	}
 
 	return 0;
