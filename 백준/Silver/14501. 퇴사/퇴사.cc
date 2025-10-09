@@ -4,25 +4,38 @@
 #define fastio ios::sync_with_stdio(0); cin.tie(0)
 using namespace std;
 
-int dp[17];    // dp[i]는 i일에 받을 수 있는 금액의 최댓값을 기록한 배열. 최대 N은 15이므로 dp[16]까지 필요함 (i일에 받을 수 있는 금액은 당일 상담을 포함하지 않음)
+int N, max_profit = 0;
+vector<pair<int, int>> v;
+
+void DFS(int day, int cur_profit) {    // 시작일, 현재까지의 이익
+	if (day == N + 1) {
+		max_profit = max(max_profit, cur_profit);
+		return;
+	}
+
+	if (day > N + 1)    // 퇴사일이 넘으면 종료
+		return;
+
+	// 오늘부터 상담을 시작하는 경우
+	if (day + v[day].first <= N + 1)
+		DFS(day + v[day].first, cur_profit + v[day].second);
+	
+	// 오늘부터 상담을 시작하지 않는 경우
+	DFS(day + 1, cur_profit);
+}
+
 int main() {
 	fastio;
 
-	int N; cin >> N;
-	vector<pair<int,int>> v(N + 1);
+	cin >> N;
+	v.resize(N + 1);
+
 	for (int i = 1; i <= N; i++)
 		cin >> v[i].first >> v[i].second;
 
-	for (int i = 1; i <= N; i++) {
-		// 현재까지의 최대 수익 유지 (dp[N+1]의 값이 N+1일째 되는 날 퇴사할 때 받는 금액의 최댓값이 됨)
-		// dp[1]은 1일차에 받을 수 있는 금액의 최댓값. 최소 2일차부터 수익이 발생 가능하므로 dp[1] = 0임은 자명
-		dp[i+1] = max(dp[i+1], dp[i]);
+	DFS(1, 0);
 
-		// 상담을 할 수 있다면 수익 계산
-		if (i + v[i].first <= N + 1)
-			dp[i + v[i].first] = max(dp[i + v[i].first], dp[i] + v[i].second);
-	}
-	cout << dp[N + 1] << '\n';
+	cout << max_profit << '\n';
 
 	return 0;
 }
