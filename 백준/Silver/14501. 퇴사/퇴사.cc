@@ -1,3 +1,4 @@
+// N의 최댓값이 15이므로 DP가 아닌 브루트포스로도 풀 수 있어서 실버 난이도.
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -35,4 +36,5 @@ int main() {
 	cout << max_profit << '\n';
 
 	return 0;
+
 }
