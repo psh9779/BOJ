@@ -24,7 +24,8 @@ int main() {
 		ll t = p.second.first, s = p.second.second;
 
 		total_t += next_pos - before_pos;
-		
+
+		// total_t < s인 경우에는 무조건 s초가 될 때까지 기다려야 출발할 수 있음
 		if (total_t < s)
 			total_t = s;
 		else {
@@ -40,4 +41,5 @@ int main() {
 	cout << total_t + (n - before_pos) << '\n';
 
 	return 0;
+
 }
