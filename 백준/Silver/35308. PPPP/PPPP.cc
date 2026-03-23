@@ -15,8 +15,6 @@ int main(){
         int N,K;
         cin >> N >> K;
 
-        string res;
-
         if(N == 1){
             cout << K << '\n';
             continue;
