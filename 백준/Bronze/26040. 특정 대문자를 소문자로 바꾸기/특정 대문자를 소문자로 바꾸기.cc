@@ -5,38 +5,23 @@ using namespace std;
 int main(){
     fastio;
 
-    string A;
+    string A, B_line;
     cin >> A;
     cin.ignore();    // 개행문자 제거
-
-    string input_str;
-    getline(cin, input_str);
+    getline(cin, B_line);
     
-    string B;
-    for(char x : input_str){
-        if(x == ' ')
-            continue;
-        B += x;    // string + char = string
+    vector<bool> check(26, false);
+    for(char c : B_line){
+        if(c != ' ') check[c-'A'] = true;
     }
 
-    // 최대 260만회의 연산
-    int A_len = A.length();
-    int B_len = B.length();
-    string res;
-    for(int i = 0; i < A_len; i++){
-        bool isExist = false;
-        for(int j = 0; j < B_len; j++){
-            if(A[i] == B[j]){
-                res += char(A[i]-'A'+'a');
-                isExist = true;
-                break;
-            }
-        }
-        if(!isExist){
-            res += A[i];
+    // C++ 문법 활용 : range-based for에서 참조(&)를 사용하면 원본 문자열의 요소를 직접 수정할 수 있다.
+    for(char &c : A){
+        if('A' <= c && c <= 'Z' && check[c-'A']){
+            c = c - 'A' + 'a';
         }
     }
-    cout << res << '\n';
+    cout << A << '\n';
 
     return 0;
 }
